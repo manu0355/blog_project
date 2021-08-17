@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <h2>Novels</h2>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>title</th>
+                <th>slug</th>
+                <th>intro</th>
+                <th>body</th>
+                <th>date_created</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for n in novel %}
+            <tr>
+                <td>{{n.title}}</td>
+                <td>{{n.slug}}</td>
+                <td>{{n.intro}}</td>
+                <td>{{n.body}}</td>
+                <td>{{n.date_created}}</td>
+                <td>
+                    <a href="{% url 'update' n.id %}" class="btn btn-sm btn-info">Edit</a>
+                    <a href="delete/{{n.id}}" class="btn btn-sm btn-info">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+</div>
+
+
+{% endblock content %}

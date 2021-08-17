@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <h2>Add New Novel</h2>
+    <form action="" method="POST">
+        {%csrf_token %}
+        <div class="form-group">
+            <label for="">title</label>
+            <input type="text" name="title" value class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">slug</label>
+            <input type="text" name="slug" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">intro</label>
+            <input type="text" name="intro" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="" class="form-control"><b>body</b></label>
+            <textarea rows="10" cols="30" style="width:50%; height:150px;" name="body"></textarea>
+            
+            <!-- <input type="text" style="width:50%; height: 150px;" class="form-control"> -->
+        </div>
+        <div class="form-group">
+            <label for="" class="form-control">date_created</label>
+            <input type="text" name="date_created" class="form-control">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="Submit"><b>Add Record</b></button>
+            <a href="{% url 'show'%}" class="btn btn-info">Show Details</a>
+            <!-- HERE url having app_name:view_name and method-->
+        </div>
+
+    </form>
+</div>
+
+
+{% endblock content %}
